@@ -1,5 +1,7 @@
 # Mastering Microservices with Java, Spring, Docker, Kubernetes
 
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXc6K8rVc66KPvsFd6Ak_fcDUe8FkyEX_GOQ&usqp=CAU" width="1000" height="300">
+
 Welcome to the "Mastering Microservices" Repo This comprehensive guide will take you on a journey to understand and implement microservices architecture using Java, Spring, Spring Boot, Spring Cloud, Docker, and Kubernetes.
 
 ## Table of Contents
