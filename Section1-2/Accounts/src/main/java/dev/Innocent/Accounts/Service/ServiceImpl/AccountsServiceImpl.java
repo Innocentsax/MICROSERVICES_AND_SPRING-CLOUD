@@ -5,6 +5,7 @@ import dev.Innocent.Accounts.DTO.CustomerDTO;
 import dev.Innocent.Accounts.Entity.Accounts;
 import dev.Innocent.Accounts.Entity.Customer;
 import dev.Innocent.Accounts.Exception.CustomerAlreadyExistsException;
+import dev.Innocent.Accounts.Exception.ResourceNotFoundException;
 import dev.Innocent.Accounts.Mapper.CustomerMapper;
 import dev.Innocent.Accounts.Repository.AccountsRepository;
 import dev.Innocent.Accounts.Repository.CustomerRepository;
@@ -63,6 +64,12 @@ public class AccountsServiceImpl implements IAccountsService {
      */
     @Override
     public CustomerDTO fetchAccount(String mobileNumber) {
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                ()-> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+        );
+        Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+                ()-> new ResourceNotFoundException("Accounts", "customerId", customer.getCustomerId().toString())
+        );
         return null;
     }
 }
