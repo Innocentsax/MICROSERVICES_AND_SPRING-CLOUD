@@ -4,12 +4,14 @@ import dev.Innocent.Accounts.Constants.AccountsConstants;
 import dev.Innocent.Accounts.DTO.CustomerDTO;
 import dev.Innocent.Accounts.Entity.Accounts;
 import dev.Innocent.Accounts.Entity.Customer;
+import dev.Innocent.Accounts.Exception.CustomerAlreadyExistsException;
 import dev.Innocent.Accounts.Mapper.CustomerMapper;
 import dev.Innocent.Accounts.Repository.AccountsRepository;
 import dev.Innocent.Accounts.Repository.CustomerRepository;
 import dev.Innocent.Accounts.Service.IAccountsService;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -24,6 +26,12 @@ public class AccountsServiceImpl implements IAccountsService {
     @Override
     public void createAccount(CustomerDTO customerDTO) {
         Customer customer = CustomerMapper.mapToCustomer(customerDTO, new Customer());
+        Optional<Customer> optionalCustomer = customerRepository
+                .findByMobileNumber(customerDTO.getMobileNumber());
+        if(optionalCustomer.isPresent()){
+            throw new CustomerAlreadyExistsException("Customer already registered with given mobile number"
+                    + customerDTO.getMobileNumber());
+        }
         Customer savedCustomer =  customerRepository.save(customer);
         accountsRepository.save(createNewAccount(savedCustomer));
     }
