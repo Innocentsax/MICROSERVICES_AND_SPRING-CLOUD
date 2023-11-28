@@ -9,12 +9,15 @@ import dev.Innocent.Accounts.Mapper.CustomerMapper;
 import dev.Innocent.Accounts.Repository.AccountsRepository;
 import dev.Innocent.Accounts.Repository.CustomerRepository;
 import dev.Innocent.Accounts.Service.IAccountsService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
 @Service
+@AllArgsConstructor
 public class AccountsServiceImpl implements IAccountsService {
     private AccountsRepository accountsRepository;
     private CustomerRepository customerRepository;
@@ -26,12 +29,13 @@ public class AccountsServiceImpl implements IAccountsService {
     @Override
     public void createAccount(CustomerDTO customerDTO) {
         Customer customer = CustomerMapper.mapToCustomer(customerDTO, new Customer());
-        Optional<Customer> optionalCustomer = customerRepository
-                .findByMobileNumber(customerDTO.getMobileNumber());
+        Optional<Customer> optionalCustomer = customerRepository.findByMobileNumber(customerDTO.getMobileNumber());
         if(optionalCustomer.isPresent()){
-            throw new CustomerAlreadyExistsException("Customer already registered with given mobile number"
+            throw new CustomerAlreadyExistsException("Customer already registered with given mobile number "
                     + customerDTO.getMobileNumber());
         }
+        customer.setCreatedAt(LocalDateTime.now());
+        customer.setCreatedBy("InnocentUdo");
         Customer savedCustomer =  customerRepository.save(customer);
         accountsRepository.save(createNewAccount(savedCustomer));
     }
@@ -48,6 +52,17 @@ public class AccountsServiceImpl implements IAccountsService {
         newAccount.setAccountNumber(randomAccNumber);
         newAccount.setAccountType(AccountsConstants.SAVINGS);
         newAccount.setBranchAddress(AccountsConstants.ADDRESS);
+        newAccount.setCreatedAt(LocalDateTime.now());
+        newAccount.setCreatedBy("InnocentUdo");
         return newAccount;
+    }
+
+    /**
+     * @param mobileNumber - Input Mobile Number
+     * @return Accounts Details based on a given mobile Number
+     */
+    @Override
+    public CustomerDTO fetchAccount(String mobileNumber) {
+        return null;
     }
 }
