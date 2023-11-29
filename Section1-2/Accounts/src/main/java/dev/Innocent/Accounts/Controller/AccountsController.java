@@ -28,4 +28,17 @@ public class AccountsController {
         CustomerDTO customerDTO = iAccountsService.fetchAccount(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(customerDTO);
     }
+
+    @PutMapping("/update")
+    public ResponseEntity<ResponseDTO>updateAccountDetails(@RequestBody CustomerDTO customerDTO){
+        boolean isUpdated = iAccountsService.updateAccount(customerDTO);
+        if(isUpdated){
+            return ResponseEntity.status(HttpStatus.OK).body(new ResponseDTO(AccountsConstants.STATUS_200,
+                    AccountsConstants.MESSAGE_200));
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseDTO(
+                    AccountsConstants.STATUS_500, AccountsConstants.MESSAGE_500));
+        }
+    }
 }
