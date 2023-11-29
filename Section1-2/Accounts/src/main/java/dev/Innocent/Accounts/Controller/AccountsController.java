@@ -34,12 +34,21 @@ public class AccountsController {
 
     @Operation(
             summary = "Create Account REST API",
-            description = "REST API to create new Customer & Account inside InnocentUdo's Bank"
+            description = "REST API to create new Customer &  Account inside EazyBank"
     )
-    @ApiResponse(
-            responseCode = "201",
-            description = "HTTP Status CREATED"
-    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "HTTP Status CREATED"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDTO.class)
+                    )
+            )
+    })
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> createAccount(@Valid @RequestBody CustomerDTO customerDTO){
         iAccountsService.createAccount(customerDTO);
@@ -48,13 +57,22 @@ public class AccountsController {
     }
 
     @Operation(
-            summary = "Fetch Account  Details REST API",
-            description = "REST API to fetch Customer & Account details based on mobile number"
+            summary = "Fetch Account Details REST API",
+            description = "REST API to fetch Customer &  Account details based on a mobile number"
     )
-    @ApiResponse(
-            responseCode = "200",
-            description = "HTTP Status OK"
-    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDTO.class)
+                    )
+            )
+    })
     @GetMapping("/fetch")
     public ResponseEntity<CustomerDTO> fetchAccountDetails(@RequestParam
                                                                @Pattern(regexp = "($|[0-9]{10})", message = "Mobile number must be 10 digits")
@@ -64,13 +82,17 @@ public class AccountsController {
     }
 
     @Operation(
-            summary = "Update Account details REST API",
-            description = "REST API to  update Customer  & Account based on a account number"
+            summary = "Update Account Details REST API",
+            description = "REST API to update Customer &  Account details based on a account number"
     )
     @ApiResponses({
             @ApiResponse(
                     responseCode = "200",
                     description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "417",
+                    description = "Expectation Failed"
             ),
             @ApiResponse(
                     responseCode = "500",
@@ -88,14 +110,14 @@ public class AccountsController {
                     AccountsConstants.MESSAGE_200));
         }
         else{
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseDTO(
-                    AccountsConstants.STATUS_500, AccountsConstants.MESSAGE_500));
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseDTO(
+                    AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_UPDATE));
         }
     }
 
     @Operation(
-            summary = "Delete Account Details REST API",
-            description = "REST API to  delete Customer  & Account Details based on a mobile number"
+            summary = "Delete Account & Customer Details REST API",
+            description = "REST API to delete Customer &  Account details based on a mobile number"
     )
     @ApiResponses({
             @ApiResponse(
@@ -103,8 +125,15 @@ public class AccountsController {
                     description = "HTTP Status OK"
             ),
             @ApiResponse(
+                    responseCode = "417",
+                    description = "Expectation Failed"
+            ),
+            @ApiResponse(
                     responseCode = "500",
-                    description = "HTTP Status Internal Server Error"
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDTO.class)
+                    )
             )
     })
     @DeleteMapping("/delete")
@@ -117,8 +146,8 @@ public class AccountsController {
                     AccountsConstants.MESSAGE_200));
         }
         else{
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseDTO(
-                    AccountsConstants.STATUS_500, AccountsConstants.MESSAGE_500));
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseDTO(
+                    AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_DELETE));
         }
     }
 }
