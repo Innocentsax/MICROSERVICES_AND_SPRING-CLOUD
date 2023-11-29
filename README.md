@@ -4,6 +4,8 @@
 
 Welcome to the "Mastering Microservices" Repo This comprehensive guide will take you on a journey to understand and implement microservices architecture using Java, Spring, Spring Boot, Spring Cloud, Docker, and Kubernetes.
 
++ [API Documentation](http://localhost:8081/swagger-ui/index.html)
+
 ## Table of Contents
 
 1. [Microservices Architecture](#microservices-architecture)
