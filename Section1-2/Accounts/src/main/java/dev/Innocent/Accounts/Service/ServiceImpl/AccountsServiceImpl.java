@@ -1,11 +1,13 @@
 package dev.Innocent.Accounts.Service.ServiceImpl;
 
 import dev.Innocent.Accounts.Constants.AccountsConstants;
+import dev.Innocent.Accounts.DTO.AccountsDTO;
 import dev.Innocent.Accounts.DTO.CustomerDTO;
 import dev.Innocent.Accounts.Entity.Accounts;
 import dev.Innocent.Accounts.Entity.Customer;
 import dev.Innocent.Accounts.Exception.CustomerAlreadyExistsException;
 import dev.Innocent.Accounts.Exception.ResourceNotFoundException;
+import dev.Innocent.Accounts.Mapper.AccountsMapper;
 import dev.Innocent.Accounts.Mapper.CustomerMapper;
 import dev.Innocent.Accounts.Repository.AccountsRepository;
 import dev.Innocent.Accounts.Repository.CustomerRepository;
@@ -70,6 +72,8 @@ public class AccountsServiceImpl implements IAccountsService {
         Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
                 ()-> new ResourceNotFoundException("Accounts", "customerId", customer.getCustomerId().toString())
         );
-        return null;
+        CustomerDTO customerDTO = CustomerMapper.mapToCustomerDTO(customer, new CustomerDTO());
+        customerDTO.setAccountsDTO(AccountsMapper.mapToAccountsDTO(accounts, new AccountsDTO()));
+        return customerDTO;
     }
 }
