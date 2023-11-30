@@ -20,7 +20,7 @@ public class Loans extends BaseEntity{
     @GenericGenerator(name = "native", strategy = "native")
     private Long loanId;
     private String mobileNumber;
-    private String longNumber;
+    private String loanNumber;
     private String loanType;
     private int totalLoan;
     private int amountPaid;
