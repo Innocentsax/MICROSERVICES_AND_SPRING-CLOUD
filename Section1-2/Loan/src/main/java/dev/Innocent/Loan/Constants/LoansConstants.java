@@ -1,6 +1,6 @@
 package dev.Innocent.Loan.Constants;
 
-public final class LoanConstants {
+public final class LoansConstants {
 
     public static final String HOME_LOAN = "Home Loan";
     public static final int NEW_LOAN_LIMIT = 1_00_000;
@@ -14,7 +14,7 @@ public final class LoanConstants {
     public static final String  MESSAGE_417_DELETE= "Delete operation failed. Please try again or contact Dev team";
     public static final String  STATUS_417 = "417";
 
-    public LoanConstants() {
+    public LoansConstants() {
         // restrict instantiation
     }
 }
