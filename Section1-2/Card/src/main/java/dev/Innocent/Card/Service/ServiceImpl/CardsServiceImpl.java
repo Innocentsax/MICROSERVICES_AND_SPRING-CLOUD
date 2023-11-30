@@ -49,7 +49,6 @@ public class CardsServiceImpl implements ICardsService {
     }
 
     /**
-     *
      * @param mobileNumber - Input mobile Number
      * @return Card Details based on a given mobileNumber
      */
@@ -62,7 +61,6 @@ public class CardsServiceImpl implements ICardsService {
     }
 
     /**
-     *
      * @param cardsDto - CardsDto Object
      * @return boolean indicating if the update of card details is successful or not
      */
@@ -87,6 +85,4 @@ public class CardsServiceImpl implements ICardsService {
         cardsRepository.deleteById(cards.getCardId());
         return true;
     }
-
-
 }
