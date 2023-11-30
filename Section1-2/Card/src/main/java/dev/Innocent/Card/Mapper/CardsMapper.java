@@ -1,11 +1,11 @@
 package dev.Innocent.Card.Mapper;
 
-import dev.Innocent.Card.DTO.CardsDto;
+import dev.Innocent.Card.DTO.CardsDTO;
 import dev.Innocent.Card.Entity.Cards;
 
 public class CardsMapper {
 
-    public static CardsDto mapToCardsDto(Cards cards, CardsDto cardsDto) {
+    public static CardsDTO mapToCardsDto(Cards cards, CardsDTO cardsDto) {
         cardsDto.setCardNumber(cards.getCardNumber());
         cardsDto.setCardType(cards.getCardType());
         cardsDto.setMobileNumber(cards.getMobileNumber());
@@ -15,7 +15,7 @@ public class CardsMapper {
         return cardsDto;
     }
 
-    public static Cards mapToCards(CardsDto cardsDto, Cards cards) {
+    public static Cards mapToCards(CardsDTO cardsDto, Cards cards) {
         cards.setCardNumber(cardsDto.getCardNumber());
         cards.setCardType(cardsDto.getCardType());
         cards.setMobileNumber(cardsDto.getMobileNumber());

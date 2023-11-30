@@ -10,7 +10,7 @@ import lombok.Data;
 )
 @Data
 @AllArgsConstructor
-public class ResponseDto {
+public class ResponseDTO {
 
     @Schema(
             description = "Status code in the response"

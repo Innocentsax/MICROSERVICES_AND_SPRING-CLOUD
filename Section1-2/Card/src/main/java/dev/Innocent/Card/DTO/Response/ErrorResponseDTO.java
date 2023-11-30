@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
         name = "ErrorResponse",
         description = "Schema to hold error response information"
 )
-public class ErrorResponseDto {
+public class ErrorResponseDTO {
 
     @Schema(
             description = "API path invoked by client"
