@@ -1,10 +1,10 @@
-package dev.Innocent.Loan;
+package dev.Innocent.Card;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LoanApplicationTests {
+class cardApplicationTests {
 
 	@Test
 	void contextLoads() {

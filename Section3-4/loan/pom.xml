@@ -9,10 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.Innocent</groupId>
-	<artifactId>Card</artifactId>
+	<artifactId>loan</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Card</name>
-	<description>Microservice for Cards</description>
+	<packaging>jar</packaging>
+	<name>Loan</name>
+	<description>Loan Session for Microservices</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -68,6 +69,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${project.parent.version}</version>
 				<configuration>
 					<excludes>
 						<exclude>
@@ -75,6 +77,16 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.4.0</version>
+				<configuration>
+					<to>
+						<image>innocentudo/${project.artifactId}:s4</image>
+					</to>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -1,4 +1,4 @@
-package dev.Innocent.Card;
+package dev.Innocent.Loan;
 
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
@@ -14,14 +14,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScans({@ComponentScan("dev.Innocent.Card.Controller")})
-@EnableJpaRepositories("dev.Innocent.Card.Repository")
-@EntityScan("dev.Innocent.Card.Entity")
+@ComponentScans({@ComponentScan("dev.Innocent.Loan.Controller")})
+@EnableJpaRepositories("dev.Innocent.Loan.Repository")
+@EntityScan("dev.Innocent.Loan.Entity")
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
 @OpenAPIDefinition(
 		info = @Info(
-				title = "Card Microservice REST API Documentation",
-				description = "InnocentUdo's Bank Card Microservice REST API Documentation",
+				title = "Loan Microservice REST API Documentation",
+				description = "InnocentUdo's Bank Loan Microservice REST API Documentation",
 				version = "v1",
 				contact = @Contact(
 						name = "Innocent Udo",
@@ -34,14 +34,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 				)
 		),
 		externalDocs = @ExternalDocumentation(
-				description = "InnocentUdo's Bank Card Microservice REST API Documentation",
+				description = "InnocentUdo's Bank Loan Microservice REST API Documentation",
 				url = "https://innocentsax.netlify.app/"
 		)
 )
-public class CardApplication {
+public class loanApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CardApplication.class, args);
+		SpringApplication.run(loanApplication.class, args);
 	}
 
 }
