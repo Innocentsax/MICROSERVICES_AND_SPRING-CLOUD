@@ -11,6 +11,7 @@
 	<groupId>dev.Innocent</groupId>
 	<artifactId>Loan</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>Loan</name>
 	<description>Loan Session for Microservices</description>
 	<properties>
@@ -69,6 +70,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>innocentudo/${project.artifactId}:s4</name>
+					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
