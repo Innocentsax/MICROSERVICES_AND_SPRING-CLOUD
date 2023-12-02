@@ -15,8 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScans({@ComponentScan("dev.Innocent.Card.Controller")})
-@EnableJpaRepositories("dev.Innocent.card.Repository")
-@EntityScan("dev.Innocent.card.Entity")
+@EnableJpaRepositories("dev.Innocent.Card.Repository")
+@EntityScan("dev.Innocent.Card.Entity")
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
 @OpenAPIDefinition(
 		info = @Info(
