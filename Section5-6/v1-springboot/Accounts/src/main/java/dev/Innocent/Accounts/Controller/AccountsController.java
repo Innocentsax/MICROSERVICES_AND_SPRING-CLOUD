@@ -1,6 +1,7 @@
 package dev.Innocent.Accounts.Controller;
 
 import dev.Innocent.Accounts.Constants.AccountsConstants;
+import dev.Innocent.Accounts.DTO.AccountsContactInfoDTO;
 import dev.Innocent.Accounts.DTO.CustomerDTO;
 import dev.Innocent.Accounts.DTO.Response.ErrorResponseDTO;
 import dev.Innocent.Accounts.DTO.Response.ResponseDTO;
@@ -38,6 +39,8 @@ public class AccountsController {
 
     @Autowired
     private Environment environment;
+    @Autowired
+    private AccountsContactInfoDTO accountsContactInfoDTO;
 
     public AccountsController(IAccountsService iAccountsService) {
         this.iAccountsService = iAccountsService;
@@ -205,5 +208,28 @@ public class AccountsController {
     public ResponseEntity<String> getJavaVersion(){
         return ResponseEntity.status(HttpStatus.OK)
                 .body(environment.getProperty("JAVA_HOME"));
+    }
+
+    @Operation(
+            summary = "Get Contact Info",
+            description = "Contact Info details that can be reached out in case of any issues"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDTO.class)
+                    )
+            )
+    })
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDTO> getContactInfo(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(accountsContactInfoDTO);
     }
 }
