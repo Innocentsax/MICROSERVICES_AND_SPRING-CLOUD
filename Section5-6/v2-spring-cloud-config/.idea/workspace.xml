@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17335515-06ca-43d9-aaf1-e2f53fd82f6e" name="Changes" comment="feat | Configuration Management">
+      <change afterPath="$PROJECT_DIR$/../v1-springboot/card/src/main/java/dev/Innocent/Card/DTO/CardsContactInfoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../v1-springboot/card/src/main/resources/application_prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../v1-springboot/card/src/main/resources/application_qa.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../v1-springboot/card/src/main/java/dev/Innocent/Card/CardApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../v1-springboot/card/src/main/java/dev/Innocent/Card/CardApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../v1-springboot/card/src/main/java/dev/Innocent/Card/Controller/CardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../v1-springboot/card/src/main/java/dev/Innocent/Card/Controller/CardsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../v1-springboot/card/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../v1-springboot/card/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../v1-springboot/loan/src/main/java/dev/Innocent/Loan/Controller/LoansController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../v1-springboot/loan/src/main/java/dev/Innocent/Loan/Controller/LoansController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Record" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2Z1VT1IPSaZDrUZDfYtxlqOxwxx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/mac/Desktop/Microservices/Section5-6/v2-spring-cloud-config",
+    "settings.editor.selected.configurable": "editor.preferences.folding"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/card/src/main/resources" />
+      <recent name="$PROJECT_DIR$/loan/src/main/resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dev.Innocent.Card.DTO" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CardApplication">
+    <configuration name="AccountsApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <envs>
+        <env name="SPRING_PROFILES_ACTIVE" value="prod" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="dev.Innocent.Accounts.AccountsApplication" />
+      <module name="Accounts" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.Innocent.Accounts.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CardApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.Innocent.Card.CardApplication" />
+      <module name="card" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.Innocent.Card.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="loanApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.Innocent.Loan.loanApplication" />
+      <module name="loan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.Innocent.Loan.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CardApplication" />
+        <item itemvalue="Application.loanApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17335515-06ca-43d9-aaf1-e2f53fd82f6e" name="Changes" comment="" />
+      <created>1701589576572</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701589576572</updated>
+    </task>
+    <task id="LOCAL-00001" summary="feat | Configuration Management">
+      <option name="closed" value="true" />
+      <created>1701592691256</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701592691256</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat | Configuration Management">
+      <option name="closed" value="true" />
+      <created>1701604947441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701604947441</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat | Configuration Management">
+      <option name="closed" value="true" />
+      <created>1701607781879</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701607781880</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat | Configuration Management">
+      <option name="closed" value="true" />
+      <created>1701612426953</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701612426953</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat | Configuration Management">
+      <option name="closed" value="true" />
+      <created>1701618934631</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701618934631</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat | Configuration Management" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat | Configuration Management" />
+  </component>
+</project>

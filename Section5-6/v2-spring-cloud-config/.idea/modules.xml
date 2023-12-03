@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/v1-springboot.iml" filepath="$PROJECT_DIR$/.idea/v1-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/v2-spring-cloud-config.iml" filepath="$PROJECT_DIR$/.idea/v2-spring-cloud-config.iml" />
     </modules>
   </component>
 </project>
