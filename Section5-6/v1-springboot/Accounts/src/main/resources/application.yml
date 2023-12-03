@@ -14,15 +14,22 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
 
 build:
-  version: "1.0"
+  version: "3.0"
 
 accounts:
   message: "Welcome to InnocentUdo's accounts related local APIs"
   contactDetails:
-    name: "Innocent Udo"
+    name: "Innocent Udo -Developer"
     email: "innocentcharlesudo@gmail.com"
-    onCallSupport:
+  onCallSupport:
       -(+234)8163093928
       -(+234)7036578340
