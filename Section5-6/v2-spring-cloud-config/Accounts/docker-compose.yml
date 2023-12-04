@@ -1,0 +1,37 @@
+services:
+  Accounts:
+    image: "innocentudo/account:s4"
+    container_name: account_ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - innocentudo
+  loan:
+    image: "innocentudo/loan:s4"
+    container_name: loan_ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - innocentudo
+  card:
+    image: "innocentudo/card:s4"
+    container_name: card_ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - innocentudo
+networks:
+  innocentudo:
+    driver: "bridge"
