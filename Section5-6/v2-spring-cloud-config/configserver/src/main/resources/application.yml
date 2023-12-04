@@ -4,6 +4,8 @@ spring:
   profiles:
     active: native
   cloud:
+    compatibility-verifier:
+      enabled: "true"
     config:
       server:
         native:
@@ -11,3 +13,7 @@ spring:
 
 server:
   port: 8071
+
+  cloud:
+    compatibility-verifier:
+      enabled: "false"
