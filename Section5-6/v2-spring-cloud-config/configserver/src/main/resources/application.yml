@@ -9,7 +9,8 @@ spring:
     config:
       server:
         native:
-          search-locations: "classpath:/config"
+          #search-locations: "classpath:/config"
+          search-locations: "file:C:/Users/Innocent Udo/MICROSERVICES_AND_SPRING-CLOUD/Section5-6/config"
 
 server:
   port: 8071
