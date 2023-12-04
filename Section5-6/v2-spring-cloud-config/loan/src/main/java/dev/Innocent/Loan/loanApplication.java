@@ -46,5 +46,4 @@ public class loanApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(loanApplication.class, args);
 	}
-
 }
