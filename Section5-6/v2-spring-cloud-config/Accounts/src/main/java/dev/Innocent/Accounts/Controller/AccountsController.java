@@ -42,6 +42,7 @@ public class AccountsController {
     @Autowired
     private AccountsContactInfoDTO accountsContactInfoDTO;
 
+    @Autowired
     public AccountsController(IAccountsService iAccountsService) {
         this.iAccountsService = iAccountsService;
     }

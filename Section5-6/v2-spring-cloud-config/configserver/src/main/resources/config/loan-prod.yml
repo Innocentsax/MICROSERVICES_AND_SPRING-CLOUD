@@ -1,13 +1,8 @@
-spring:
-  config:
-    activate:
-      on-profile: "prod"
-
 build:
   version: "1.0"
 
-cards:
-  message: "Welcome to InnocentUdo's Card related prod APIs"
+accounts:
+  message: "Welcome to InnocentUdo's Loans related prod APIs"
   contactDetails:
     name: "Innocent Charles Udo - Product Owner"
     email: "innocentcharlesudo@gmail.com"
