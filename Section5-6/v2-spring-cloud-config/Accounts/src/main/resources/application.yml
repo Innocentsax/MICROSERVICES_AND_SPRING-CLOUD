@@ -15,21 +15,7 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-  profiles:
-    active:
-      - "qa"
+    import: "optional:configserver:http://localhost:8071/"
 
 build:
   version: "3.0"
-
-accounts:
-  message: "Welcome to InnocentUdo's accounts related local APIs"
-  contactDetails:
-    name: "Innocent Udo -Developer"
-    email: "innocentcharlesudo@gmail.com"
-  onCallSupport:
-      -(+234)8163093928
-      -(+234)7036578340
