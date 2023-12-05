@@ -1,11 +1,15 @@
 server:
   port: 8090
 spring:
+  application:
+    name: "loan"
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
     username: sa
-    password: ' '
+    password: ''
   h2:
     console:
       enabled: true
@@ -15,21 +19,10 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-  profiles:
-    active:
-      - "qa"
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    compatibility-verifier:
+      enabled: "false"
 
 build:
   version: "3.0"
-
-loans:
-  message: "Welcome to InnocentUdo's loans related local APIs"
-  contactDetails:
-    name: "Innocent Udo -Developer"
-    email: "innocentcharlesudo@gmail.com"
-  onCallSupport:
-    -(+234)8163093928
-    -(+234)7036578340
