@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3648a15a-d9f3-4268-81fd-07972fbd3540" name="Changes" comment="Spring Cloud Configuration" />
+    <list default="true" id="3648a15a-d9f3-4268-81fd-07972fbd3540" name="Changes" comment="Spring Cloud Configuration">
+      <change beforePath="$PROJECT_DIR$/../../Section7/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/Accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/Accounts/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/Accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/Accounts/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/card/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/card/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/card/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/card/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/configserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/configserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/configserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/configserver/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/loan/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/loan/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Section7/loan/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/loan/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +50,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Innocent Udo/MICROSERVICES_AND_SPRING-CLOUD/Section5-6/v2-spring-cloud-config/configserver/src/main/resources/config",
+    "last_opened_file_path": "C:/Users/Innocent Udo/MICROSERVICES_AND_SPRING-CLOUD/Section7",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
