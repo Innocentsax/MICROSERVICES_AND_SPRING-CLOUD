@@ -1,0 +1,11 @@
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to InnocentUdo's accounts related QA APIs"
+  contactDetails:
+    name: "Innocent Charles - QA Lead"
+    email: "innocentcharlesudo@gmail.com"
+  onCallSupport:
+      -(+234)8163093928
+      -(+234)7036578340
