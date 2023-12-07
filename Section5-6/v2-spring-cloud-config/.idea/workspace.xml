@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3648a15a-d9f3-4268-81fd-07972fbd3540" name="Changes" comment="Spring Cloud Configuration">
-      <change beforePath="$PROJECT_DIR$/../../Section7/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/Accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/Accounts/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/Accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/Accounts/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/card/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/card/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/card/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/card/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/configserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/configserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/configserver/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/configserver/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/loan/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/loan/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section7/loan/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section7/loan/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
