@@ -1,67 +1,40 @@
 services:
   accountsdb:
-    image: mysql
     container_name: accountsdb
     ports:
       - 54175:3306
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h","localhost"]
-      timeout: 10s
-      retries: 10
-      interval: 10s
-      start_period: 10s
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: accountsdb
     extends:
       file: common-config.yml
-      service: network-deploy-service
+      service: microservice-db-config
 
   carddb:
-    image: mysql
     container_name: carddb
     ports:
       - 3307:3306
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h","localhost" ]
-      timeout: 10s
-      retries: 10
-      interval: 10s
-      start_period: 10s
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: carddb
     extends:
       file: common-config.yml
-      service: network-deploy-service
+      service: microservice-db-config
 
   loandb:
-    image: mysql
     container_name: loandb
     ports:
       - 3308:3306
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h","localhost" ]
-      timeout: 10s
-      retries: 10
-      interval: 10s
-      start_period: 10s
     environment:
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: loandb
     extends:
       file: common-config.yml
-      service: network-deploy-service
+      service: microservice-db-config
 
 
   configserver:
-    image: "innocentudo/configserver:s6"
+    image: "innocentudo/configserver:s7"
     container_name: configserver_ms
     ports:
       - "8071:8071"
-    depends_on:
-      rabbit:
-        condition: service_healthy
     healthcheck:
       test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
       interval: 10s
@@ -74,39 +47,48 @@ services:
 
 
   accounts:
-    image: "innocentudo/accounts:s6"
+    image: "innocentudo/accounts:s7"
     container_name: account_ms
     ports:
       - "8080:8080"
     environment:
       SPRING_APPLICATION_NAME: "accounts"
-      SPRING_DATASOURCE_URL: "jdbc:mysql://accountsdb:54175/accountsdb"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://accountsdb:3306/accountsdb"
+    depends_on:
+      accountsdb:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-configserver-config
 
 
   loan:
-    image: "innocentudo/loan:s6"
+    image: "innocentudo/loan:s7"
     container_name: loan_ms
     ports:
       - "8090:8090"
     environment:
       SPRING_APPLICATION_NAME: "loan"
-      SPRING_DATASOURCE_URL: "jdbc:mysql://loandb:3308/loandb"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://loandb:3306/loandb"
+    depends_on:
+      loandb:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-configserver-config
 
 
   card:
-    image: "innocentudo/card:s6"
+    image: "innocentudo/card:s7"
     container_name: card_ms
     ports:
       - "9000:9000"
     environment:
       SPRING_APPLICATION_NAME: "card"
-      SPRING_DATASOURCE_URL: "jdbc:mysql://carddb:3307/carddb"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://carddb:3306/carddb"
+    depends_on:
+      carddb:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-configserver-config
