@@ -1,0 +1,30 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
+  datasource:
+    url: jdbc:mysql://localhost:54175/accountsdb
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    compatibility-verifier:
+      enabled: "false"
+
+build:
+  version: "3.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

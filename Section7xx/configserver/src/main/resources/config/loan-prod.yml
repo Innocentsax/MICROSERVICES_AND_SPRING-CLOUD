@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to InnocentUdo's Loans related prod APIs"
+  contactDetails:
+    name: "Innocent Charles Udo - Product Owner"
+    email: "innocentcharlesudo@gmail.com"
+  onCallSupport:
+      -(+234)8163093928
+      -(+234)7036578340
