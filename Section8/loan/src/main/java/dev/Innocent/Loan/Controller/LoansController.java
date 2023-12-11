@@ -45,6 +45,7 @@ public class LoansController {
     @Autowired
     private LoansContactInfoDTO loansContactInfoDTO;
 
+    @Autowired
     public LoansController(ILoansService iLoansService) {
         this.iLoansService = iLoansService;
     }

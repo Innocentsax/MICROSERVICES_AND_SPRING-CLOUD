@@ -53,8 +53,8 @@ public class CustomerController {
                     )
             )
     })
-    @GetMapping("/fetch")
-    public ResponseEntity<CustomerDetailsDTO> fetchAccountDetails(@RequestParam
+    @GetMapping("/fetchCustomerDetails")
+    public ResponseEntity<CustomerDetailsDTO> fetchCustomerDetails(@RequestParam
                                                            @Pattern(regexp = "($|[0-9]{10})", message = "Mobile number must be 10 digits")
                                                            String mobileNumber){
 

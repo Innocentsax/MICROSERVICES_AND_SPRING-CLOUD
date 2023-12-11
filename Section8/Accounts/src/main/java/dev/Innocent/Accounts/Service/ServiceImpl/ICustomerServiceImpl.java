@@ -14,18 +14,27 @@ import dev.Innocent.Accounts.Repository.CustomerRepository;
 import dev.Innocent.Accounts.Service.ICustomerService;
 import dev.Innocent.Accounts.Service.client.CardsFeignClient;
 import dev.Innocent.Accounts.Service.client.LoansFeignClient;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class ICustomerServiceImpl implements ICustomerService {
 
-    private AccountsRepository accountsRepository;
-    private CustomerRepository customerRepository;
-    private CardsFeignClient cardsFeignClient;
-    private LoansFeignClient loansFeignClient;
+    private final AccountsRepository accountsRepository;
+    private final CustomerRepository customerRepository;
+    private final CardsFeignClient cardsFeignClient;
+    private final LoansFeignClient loansFeignClient;
+
+    @Autowired
+    public ICustomerServiceImpl(AccountsRepository accountsRepository,
+                                CustomerRepository customerRepository,
+                                CardsFeignClient cardsFeignClient, LoansFeignClient loansFeignClient) {
+        this.accountsRepository = accountsRepository;
+        this.customerRepository = customerRepository;
+        this.cardsFeignClient = cardsFeignClient;
+        this.loansFeignClient = loansFeignClient;
+    }
 
     /**
      * @param mobileNumber - Input Mobile Number

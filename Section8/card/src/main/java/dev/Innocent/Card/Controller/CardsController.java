@@ -46,6 +46,7 @@ public class CardsController {
     @Autowired
     private CardsContactInfoDTO cardsContactInfoDTO;
 
+    @Autowired
     public CardsController(ICardsService iCardsService) {
         this.iCardsService = iCardsService;
     }
