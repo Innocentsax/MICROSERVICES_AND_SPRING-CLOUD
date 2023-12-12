@@ -8,12 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eurekaserver" />
+        <module name="gatewayserver" />
         <module name="loan" />
         <module name="accounts" />
         <module name="configserver" />
         <module name="card" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gatewayserver (1)" target="17" />
+      <module name="gatewayserver (2)" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -21,6 +26,9 @@
       <module name="card" options="-parameters" />
       <module name="configserver" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
+      <module name="gatewayserver" options="-parameters" />
+      <module name="gatewayserver (1)" options="-parameters" />
+      <module name="gatewayserver (2)" options="-parameters" />
       <module name="loan" options="-parameters" />
     </option>
   </component>

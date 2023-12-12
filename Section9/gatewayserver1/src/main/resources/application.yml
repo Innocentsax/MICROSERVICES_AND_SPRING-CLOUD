@@ -1,4 +1,3 @@
-
 spring:
   application:
     name: "gatewayserver"
@@ -9,6 +8,7 @@ spring:
       discovery:
         locator:
           enabled: true
+          lowerCaseServiceId: true
     compatibility-verifier:
       enabled: "false"
 
