@@ -1,29 +1,9 @@
 services:
-  rabbit:
-    image: rabbitmq:3.12-management
-    hostname: rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    healthcheck:
-      test: rabbitmq-diagnostics check_port_connectivity
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 5s
-    extends:
-      file: common-config.yml
-      service: network-deploy-service
-
-
   configserver:
-    image: "innocentudo/configserver:s6"
+    image: "innocentudo/configserver:s8"
     container_name: configserver_ms
     ports:
       - "8071:8071"
-    depends_on:
-      rabbit:
-        condition: service_healthy
     healthcheck:
       test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
       interval: 10s
@@ -35,8 +15,25 @@ services:
       service: microservice-base-config
 
 
+  eurekaserver:
+    image: "innocentudo/eurekaserver:s8"
+    container_name: eurekaserver_ms
+    ports:
+      - "8070:8070"
+    healthcheck:
+      test: "curl --fail --silent localhost:8070/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-configserver-config
+    environment:
+      SPRING_APPLICATION_NAME: "eurekaserver"
+
   accounts:
-    image: "innocentudo/accounts:s6"
+    image: "innocentudo/accounts:s8"
     container_name: account_ms
     ports:
       - "8080:8080"
@@ -44,11 +41,11 @@ services:
       SPRING_APPLICATION_NAME: "accounts"
     extends:
       file: common-config.yml
-      service: microservice-configserver-config
+      service: microservice-eureka-config
 
 
   loan:
-    image: "innocentudo/loan:s6"
+    image: "innocentudo/loan:s8"
     container_name: loan_ms
     ports:
       - "8090:8090"
@@ -56,11 +53,11 @@ services:
       SPRING_APPLICATION_NAME: "loan"
     extends:
       file: common-config.yml
-      service: microservice-configserver-config
+      service: microservice-eureka-config
 
 
   card:
-    image: "innocentudo/card:s6"
+    image: "innocentudo/card:s8"
     container_name: card_ms
     ports:
       - "9000:9000"
@@ -68,7 +65,7 @@ services:
       SPRING_APPLICATION_NAME: "card"
     extends:
       file: common-config.yml
-      service: microservice-configserver-config
+      service: microservice-eureka-config
 
 networks:
   innocentudo:
