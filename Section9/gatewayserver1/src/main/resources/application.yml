@@ -7,7 +7,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enabled: false
           lowerCaseServiceId: true
     compatibility-verifier:
       enabled: "false"
