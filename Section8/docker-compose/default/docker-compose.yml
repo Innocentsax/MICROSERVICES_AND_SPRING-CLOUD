@@ -43,6 +43,17 @@ services:
       file: common-config.yml
       service: microservice-eureka-config
 
+#Adding one more instance of account microservice to check load balancing
+  accounts1:
+    image: "innocentudo/accounts:s8"
+    container_name: account_ms1
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_APPLICATION_NAME: "accounts"
+    extends:
+      file: common-config.yml
+      service: microservice-eureka-config
 
   loan:
     image: "innocentudo/loan:s8"
