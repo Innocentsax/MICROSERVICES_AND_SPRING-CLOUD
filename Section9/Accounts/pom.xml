@@ -100,7 +100,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>innocentudo/${project.artifactId}:s8</image>
+						<image>innocentudo/${project.artifactId}:s9</image>
 					</to>
 				</configuration>
 			</plugin>
