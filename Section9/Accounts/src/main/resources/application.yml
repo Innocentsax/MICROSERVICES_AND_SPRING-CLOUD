@@ -57,3 +57,9 @@ info:
     name: "accounts"
     description: "InnocentUdo's Bank Accounts Application"
     version: "1.0.0"
+
+logging:
+  level:
+    dev:
+      Innocent:
+        Accounts: DEBUG

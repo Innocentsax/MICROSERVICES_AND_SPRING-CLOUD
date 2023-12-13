@@ -29,3 +29,9 @@ info:
     name: "gatewayserver"
     description: "InnocentUdo's Bank Gateway Server Application"
     version: "1.0.0"
+
+logging:
+  level:
+    dev:
+      Innocent:
+        gatewayserver: DEBUG

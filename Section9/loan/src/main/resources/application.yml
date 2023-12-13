@@ -54,3 +54,9 @@ info:
     name: "loan"
     description: "InnocentUdo's Bank loan Application"
     version: "1.0.0"
+
+logging:
+  level:
+    dev:
+      Innocent:
+        Loan: DEBUG

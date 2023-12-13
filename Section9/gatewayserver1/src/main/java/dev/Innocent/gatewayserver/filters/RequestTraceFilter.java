@@ -31,7 +31,7 @@ public class RequestTraceFilter implements GlobalFilter {
             exchange = filterUtility.setCorrelationId(exchange, correlationID);
             logger.debug("udobank-correlation-id generated in RequestTraceFilter : {}", correlationID);
         }
-        return null;
+        return chain.filter(exchange);
     }
 
     private boolean isCorrelationIdPresent(HttpHeaders requestHeaders){
