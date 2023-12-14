@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: "gatewayserver"
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+    compatibility-verifier:
+      enabled: "false"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "InnocentUdo's Bank Gateway Server Application"
+    version: "1.0.0"
+
+logging:
+  level:
+    dev:
+      Innocent:
+        gatewayserver: DEBUG
