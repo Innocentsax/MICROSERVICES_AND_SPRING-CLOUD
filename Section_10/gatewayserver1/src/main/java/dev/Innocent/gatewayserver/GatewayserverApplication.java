@@ -22,21 +22,24 @@ public class GatewayserverApplication {
 						.path("/udobank/accounts/**")
 						.filters(f -> f.rewritePath("/udobank/accounts/(?<segment>.*)","/${segment}")
 								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
-								.circuitBreaker(config -> config.setName("accountsCircuitBreaker")))
+								.circuitBreaker(config -> config.setName("accountsCircuitBreaker")
+										.setFallbackUri("forward:/contactSupport")))
 						.uri("lb://ACCOUNTS"))
 
 				.route(p -> p
 						.path("/udobank/loan/**")
 						.filters(f -> f.rewritePath("/udobank/loan/(?<segment>.*)","/${segment}")
 								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
-								.circuitBreaker(config -> config.setName("loanCircuitBreaker")))
+								.circuitBreaker(config -> config.setName("loanCircuitBreaker")
+										.setFallbackUri("forward:/contactSupport")))
 						.uri("lb://LOAN"))
 
 				.route(p -> p
 						.path("/udobank/card/**")
 						.filters(f -> f.rewritePath("/udobank/card/(?<segment>.*)","/${segment}")
 								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString())
-								.circuitBreaker(config -> config.setName("cardCircuitBreaker")))
+								.circuitBreaker(config -> config.setName("cardCircuitBreaker")
+										.setFallbackUri("forward:/contactSupport")))
 						.uri("lb://CARD")).build();
 	}
 
