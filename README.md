@@ -1,4 +1,4 @@
-# Mastering Microservices with Java, Spring, Docker, Kubernetes
+# Mastering Microservices with Java, Spring, Docker, Kubernetes.
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXc6K8rVc66KPvsFd6Ak_fcDUe8FkyEX_GOQ&usqp=CAU" width="1000" height="300">
 
