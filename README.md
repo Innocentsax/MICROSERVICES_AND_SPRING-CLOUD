@@ -149,3 +149,6 @@ Welcome to the "Mastering Microservices" Repo This comprehensive guide will take
 | "helm uninstall [NAME]" | Uninstall all of the resources associated with a given release |
 | "helm template [NAME] [CHART]" | Render chart templates locally along with the values |
 | "helm list" | Lists all of the helm releases inside a K8s cluster |
+
+## AUTHOR
+___INNOCENT UDO___
