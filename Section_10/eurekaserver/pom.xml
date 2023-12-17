@@ -61,7 +61,7 @@
 				<version>3.4.0</version>
 				<configuration>
 					<to>
-						<image>innocentudo/${project.artifactId}:s9</image>
+						<image>innocentudo/${project.artifactId}:s10</image>
 					</to>
 				</configuration>
 			</plugin>
