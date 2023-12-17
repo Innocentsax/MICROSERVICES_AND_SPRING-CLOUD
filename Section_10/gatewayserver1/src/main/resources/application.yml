@@ -15,6 +15,13 @@ spring:
     compatibility-verifier:
       enabled: "false"
 
+  data:
+    redis:
+      connect-timeout: 2s
+      host: localhost
+      port: 6379
+      timeout: 1s
+
 management:
   endpoints:
     web:
