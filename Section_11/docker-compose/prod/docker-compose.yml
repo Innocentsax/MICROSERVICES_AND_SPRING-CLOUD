@@ -115,14 +115,14 @@ services:
       - sh
       - -euc
       - |
-#        cat <<EOF > /etc/nginx/nginx.conf
-#        user  nginx;
-#        worker_processes  5;  ## Default: 1
-#
-#        events {
-#          worker_connections   1000;
-#        }
-#
+        cat <<EOF > /etc/nginx/nginx.conf
+        user  nginx;
+        worker_processes  5;  ## Default: 1
+
+        events {
+          worker_connections   1000;
+        }
+
 #        http {
 #          resolver 127.0.0.11;
 #
