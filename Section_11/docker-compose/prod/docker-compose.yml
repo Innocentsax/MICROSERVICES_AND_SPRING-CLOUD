@@ -161,16 +161,16 @@ services:
             location ~ /loki/api/.* {
               proxy_pass       http://read:3100\$$request_uri;
             }
-#          }
-#        }
-#        EOF
-#        /docker-entrypoint.sh nginx -g "daemon off;"
-#    ports:
-#      - "3100:3100"
-#    healthcheck:
-#      test: [ "CMD", "service", "nginx", "status" ]
-#      interval: 10s
-#      timeout: 5s
+          }
+        }
+        EOF
+        /docker-entrypoint.sh nginx -g "daemon off;"
+    ports:
+      - "3100:3100"
+    healthcheck:
+      test: [ "CMD", "service", "nginx", "status" ]
+      interval: 10s
+      timeout: 5s
 #      retries: 5
 #    extends:
 #      file: common-config.yml
