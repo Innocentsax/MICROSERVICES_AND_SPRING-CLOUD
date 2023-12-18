@@ -50,14 +50,14 @@ services:
     extends:
       file: common-config.yml
       service: network-deploy-service
-#
-#
-#  minio:
-#    image: minio/minio
-#    entrypoint:
-#      - sh
-#      - -euc
-#      - |
+
+
+  minio:
+    image: minio/minio
+    entrypoint:
+      - sh
+      - -euc
+      - |
 #        mkdir -p /data/loki-data && \
 #        mkdir -p /data/loki-ruler && \
 #        minio server /data
