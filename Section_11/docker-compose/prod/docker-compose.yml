@@ -38,12 +38,12 @@ services:
       - minio
     networks:
       <<: *loki-dns
-#
-#  promtail:
-#    image: grafana/promtail:2.8.3
-#    volumes:
-#      - ../observability/promtail/promtail-local-config.yaml:/etc/promtail/config.yaml:ro
-#      - /var/run/docker.sock:/var/run/docker.sock
+
+  promtail:
+    image: grafana/promtail:2.8.3
+    volumes:
+      - ../observability/promtail/promtail-local-config.yaml:/etc/promtail/config.yaml:ro
+      - /var/run/docker.sock:/var/run/docker.sock
 #    command: -config.file=/etc/promtail/config.yaml
 #    depends_on:
 #      - gateway
