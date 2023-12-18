@@ -105,16 +105,16 @@ services:
       file: common-config.yml
       service: network-deploy-service
 
-#
-#  gateway:
-#    image: nginx:latest
-#    depends_on:
-#      - read
-#      - write
-#    entrypoint:
-#      - sh
-#      - -euc
-#      - |
+
+  gateway:
+    image: nginx:latest
+    depends_on:
+      - read
+      - write
+    entrypoint:
+      - sh
+      - -euc
+      - |
 #        cat <<EOF > /etc/nginx/nginx.conf
 #        user  nginx;
 #        worker_processes  5;  ## Default: 1
