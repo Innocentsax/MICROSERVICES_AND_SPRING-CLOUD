@@ -44,12 +44,12 @@ services:
     volumes:
       - ../observability/promtail/promtail-local-config.yaml:/etc/promtail/config.yaml:ro
       - /var/run/docker.sock:/var/run/docker.sock
-#    command: -config.file=/etc/promtail/config.yaml
-#    depends_on:
-#      - gateway
-#    extends:
-#      file: common-config.yml
-#      service: network-deploy-service
+    command: -config.file=/etc/promtail/config.yaml
+    depends_on:
+      - gateway
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
 #
 #
 #  minio:
