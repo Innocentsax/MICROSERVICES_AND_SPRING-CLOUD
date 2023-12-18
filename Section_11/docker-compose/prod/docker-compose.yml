@@ -73,12 +73,12 @@ services:
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:9000/minio/health/live" ]
       interval: 15s
-#      timeout: 20s
-#      retries: 5
-#    extends:
-#      file: common-config.yml
-#      service: network-deploy-service
-#
+      timeout: 20s
+      retries: 5
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
+
 #  grafana:
 #    image: grafana/grafana:latest
 #    environment:
