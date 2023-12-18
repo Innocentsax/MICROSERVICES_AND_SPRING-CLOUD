@@ -143,14 +143,14 @@ services:
               proxy_set_header Upgrade \$$http_upgrade;
               proxy_set_header Connection "upgrade";
             }
-#
-#            location ~ /api/prom/.* {
-#              proxy_pass       http://read:3100\$$request_uri;
-#            }
-#
-#            location = /loki/api/v1/push {
-#              proxy_pass       http://write:3100\$$request_uri;
-#            }
+
+            location ~ /api/prom/.* {
+              proxy_pass       http://read:3100\$$request_uri;
+            }
+
+            location = /loki/api/v1/push {
+              proxy_pass       http://write:3100\$$request_uri;
+            }
 #
 #            location = /loki/api/v1/tail {
 #              proxy_pass       http://read:3100\$$request_uri;
