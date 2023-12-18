@@ -171,10 +171,10 @@ services:
       test: [ "CMD", "service", "nginx", "status" ]
       interval: 10s
       timeout: 5s
-#      retries: 5
-#    extends:
-#      file: common-config.yml
-#      service: network-deploy-service
+      retries: 5
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
 
   configserver:
     image: "innocentudo/configserver:s11"
