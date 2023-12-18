@@ -58,9 +58,9 @@ services:
       - sh
       - -euc
       - |
-#        mkdir -p /data/loki-data && \
-#        mkdir -p /data/loki-ruler && \
-#        minio server /data
+        mkdir -p /data/loki-data && \
+        mkdir -p /data/loki-ruler && \
+        minio server /data
 #    environment:
 #      - MINIO_ROOT_USER=loki
 #      - MINIO_ROOT_PASSWORD=supersecret
