@@ -11,7 +11,7 @@ services:
     depends_on:
       - minio
     healthcheck:
-      test: [ "CMD-SHELL","wget --no-verbose --tries=1 --spider http://localhost:3100/ready || exit 1" ]
+      test: [ "CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3100/ready || exit 1" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -51,7 +51,6 @@ services:
       file: common-config.yml
       service: network-deploy-service
 
-
   minio:
     image: minio/minio
     entrypoint:
@@ -75,6 +74,30 @@ services:
       interval: 15s
       timeout: 20s
       retries: 5
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
+
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ../observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
+
+  tempo:
+    image: grafana/tempo
+    container_name: tempo
+    command: -config.file /etc/tempo-config.yml
+    ports:
+      - "3110:3100"
+      - "4317:4317"
+    volumes:
+      - ../observability/tempo/tempo.yml:/etc/tempo-config.yml
     extends:
       file: common-config.yml
       service: network-deploy-service
@@ -104,7 +127,6 @@ services:
     extends:
       file: common-config.yml
       service: network-deploy-service
-
 
   gateway:
     image: nginx:latest
@@ -183,13 +205,15 @@ services:
       - "8071:8071"
     healthcheck:
       test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
-      interval: 10s
+      interval: 20s
       timeout: 5s
-      retries: 10
+      retries: 20
       start_period: 10s
     extends:
       file: common-config.yml
       service: microservice-base-config
+    environment:
+      OTEL_SERVICE_NAME: "configserver"
 
 
   eurekaserver:
@@ -199,19 +223,20 @@ services:
       - "8070:8070"
     healthcheck:
       test: "curl --fail --silent localhost:8070/actuator/health/readiness | grep UP || exit 1"
-      interval: 10s
+      interval: 20s
       timeout: 5s
-      retries: 10
+      retries: 20
       start_period: 10s
     extends:
       file: common-config.yml
       service: microservice-configserver-config
     environment:
       SPRING_APPLICATION_NAME: "eurekaserver"
+      OTEL_SERVICE_NAME: "eurekaserver"
 
   accounts:
     image: "innocentudo/accounts:s11"
-    container_name: account_ms
+    container_name: accounts-ms
     ports:
       - "8080:8080"
     healthcheck:
@@ -222,6 +247,7 @@ services:
       start_period: 10s
     environment:
       SPRING_APPLICATION_NAME: "accounts"
+      OTEL_SERVICE_NAME: "accounts"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
@@ -239,6 +265,7 @@ services:
       start_period: 10s
     environment:
       SPRING_APPLICATION_NAME: "loan"
+      OTEL_SERVICE_NAME: "loan"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
@@ -257,6 +284,7 @@ services:
       start_period: 10s
     environment:
       SPRING_APPLICATION_NAME: "card"
+      OTEL_SERVICE_NAME: "card"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
@@ -275,6 +303,7 @@ services:
         condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "gatewayserver"
+      OTEL_SERVICE_NAME: "gatewayserver"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
