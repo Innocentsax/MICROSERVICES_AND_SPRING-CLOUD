@@ -212,6 +212,8 @@ services:
     extends:
       file: common-config.yml
       service: microservice-base-config
+    environment:
+      OTEL_SERVICE_NAME: "configserver"
 
 
   eurekaserver:
@@ -230,6 +232,7 @@ services:
       service: microservice-configserver-config
     environment:
       SPRING_APPLICATION_NAME: "eurekaserver"
+      OTEL_SERVICE_NAME: "eurekaserver"
 
   accounts:
     image: "innocentudo/accounts:s11"
@@ -262,6 +265,7 @@ services:
       start_period: 10s
     environment:
       SPRING_APPLICATION_NAME: "loan"
+      OTEL_SERVICE_NAME: "loan"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
@@ -280,6 +284,7 @@ services:
       start_period: 10s
     environment:
       SPRING_APPLICATION_NAME: "card"
+      OTEL_SERVICE_NAME: "card"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
@@ -298,6 +303,7 @@ services:
         condition: service_healthy
     environment:
       SPRING_APPLICATION_NAME: "gatewayserver"
+      OTEL_SERVICE_NAME: "gatewayserver"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
