@@ -87,14 +87,10 @@
 				<version>3.4.0</version>
 				<configuration>
 					<to>
-						<image>innocentudo/${project.artifactId}:s11</image>
+						<image>innocentudo/${project.artifactId}:s12</image>
 					</to>
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--			</plugin>-->
 		</plugins>
 	</build>
 	<repositories>
