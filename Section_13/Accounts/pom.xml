@@ -75,6 +75,15 @@
 			<version>2.2.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -119,7 +128,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>innocentudo/${project.artifactId}:s12</image>
+						<image>innocentudo/${project.artifactId}:s13</image>
 					</to>
 				</configuration>
 			</plugin>
