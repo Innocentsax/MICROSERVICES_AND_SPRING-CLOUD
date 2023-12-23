@@ -1,4 +1,16 @@
 services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.1
+    container_name: keycloak
+    ports:
+      - "7080:8080"
+    environment:
+      KEYCLOAK_ADMIN: "admin"
+      KEYCLOAK_ADMIN_PASSWORD: "admin"
+    command: "start-dev"
+    extends:
+      file: common-config.yml
+      service: network-deploy-service
   read:
     image: grafana/loki:2.8.3
     command: "-config.file=/etc/loki/config.yaml -target=read"
@@ -199,7 +211,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "innocentudo/configserver:s11"
+    image: "innocentudo/configserver:s12"
     container_name: configserver_ms
     ports:
       - "8071:8071"
@@ -217,7 +229,7 @@ services:
 
 
   eurekaserver:
-    image: "innocentudo/eurekaserver:s11"
+    image: "innocentudo/eurekaserver:s12"
     container_name: eurekaserver_ms
     ports:
       - "8070:8070"
@@ -235,10 +247,8 @@ services:
       OTEL_SERVICE_NAME: "eurekaserver"
 
   accounts:
-    image: "innocentudo/accounts:s11"
+    image: "innocentudo/accounts:s12"
     container_name: accounts-ms
-    ports:
-      - "8080:8080"
     healthcheck:
       test: "curl --fail --silent localhost:8080/actuator/health/readiness | grep UP || exit 1"
       interval: 20s
@@ -253,10 +263,8 @@ services:
       service: microservice-eureka-config
 
   loan:
-    image: "innocentudo/loan:s11"
+    image: "innocentudo/loan:s12"
     container_name: loan_ms
-    ports:
-      - "8090:8090"
     healthcheck:
       test: "curl --fail --silent localhost:8090/actuator/health/readiness | grep UP || exit 1"
       interval: 20s
@@ -272,10 +280,8 @@ services:
 
 
   card:
-    image: "innocentudo/card:s11"
+    image: "innocentudo/card:s12"
     container_name: card_ms
-    ports:
-      - "9000:9000"
     healthcheck:
       test: "curl --fail --silent localhost:9000/actuator/health/readiness | grep UP || exit 1"
       interval: 20s
@@ -290,7 +296,7 @@ services:
       service: microservice-eureka-config
 
   gatewayserver:
-    image: "innocentudo/gatewayserver:s11"
+    image: "innocentudo/gatewayserver:s12"
     container_name: gatewayserver_ms
     ports:
       - "8072:8072"
@@ -304,6 +310,7 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "gatewayserver"
       OTEL_SERVICE_NAME: "gatewayserver"
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI: "http://keycloak:8080/realms/master/protocol/openid-connect/certs"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
