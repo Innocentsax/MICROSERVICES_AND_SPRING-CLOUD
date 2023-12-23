@@ -2,6 +2,7 @@ package dev.Innocent.Accounts.Service.ServiceImpl;
 
 import dev.Innocent.Accounts.Constants.AccountsConstants;
 import dev.Innocent.Accounts.DTO.AccountsDTO;
+import dev.Innocent.Accounts.DTO.AccountsMsgDTO;
 import dev.Innocent.Accounts.DTO.CustomerDTO;
 import dev.Innocent.Accounts.Entity.Accounts;
 import dev.Innocent.Accounts.Entity.Customer;
@@ -13,6 +14,9 @@ import dev.Innocent.Accounts.Repository.AccountsRepository;
 import dev.Innocent.Accounts.Repository.CustomerRepository;
 import dev.Innocent.Accounts.Service.IAccountsService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -21,6 +25,9 @@ import java.util.Random;
 @Service
 @AllArgsConstructor
 public class AccountsServiceImpl implements IAccountsService {
+    private static final Logger log = LoggerFactory.getLogger(AccountsServiceImpl.class);
+
+    private StreamBridge streamBridge;
     private AccountsRepository accountsRepository;
     private CustomerRepository customerRepository;
 
@@ -37,7 +44,16 @@ public class AccountsServiceImpl implements IAccountsService {
                     + customerDTO.getMobileNumber());
         }
         Customer savedCustomer =  customerRepository.save(customer);
-        accountsRepository.save(createNewAccount(savedCustomer));
+        Accounts savedAccount =  accountsRepository.save(createNewAccount(savedCustomer));
+        sendCommunication(savedAccount, savedCustomer);
+    }
+
+    private void sendCommunication(Accounts accounts, Customer customer){
+        var accountsMsgDTO = new AccountsMsgDTO(accounts.getAccountNumber(), customer.getName(),
+                customer.getEmail(), customer.getMobileNumber());
+        log.info("Sending communication request for the details: {}", accountsMsgDTO);
+        var result = streamBridge.send("sendCommunication-out-0", accountsMsgDTO);
+        log.info("Is the communication request successfully processed ? : {}", result);
     }
 
     /**
