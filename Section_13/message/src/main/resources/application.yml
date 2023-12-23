@@ -12,6 +12,8 @@ spring:
         emailsms-in-0:
           destination: send-communication
           group: ${spring.application.name}
+        emailsms-out-0:
+          destination: communication-sent
   rabbitmq:
     host: localhost
     port: 5672
