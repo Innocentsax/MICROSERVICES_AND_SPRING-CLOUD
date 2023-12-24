@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+cards:
+  message: "Welcome to InnocentUdo's Cards related local APIs"
+  contactDetails:
+    name: "Innocent Udo -Developer"
+    email: "innocentcharlesudo@gmail.com"
+  onCallSupport:
+    -(+234)8163093928
+    -(+234)7036578340
