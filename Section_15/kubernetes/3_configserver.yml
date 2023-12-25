@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: configserver
-          image: innocentudo/configserver:s14
+          image: innocentudo/configserver:s12
           ports:
             - containerPort: 8071
 ---
