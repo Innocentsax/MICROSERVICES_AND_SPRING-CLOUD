@@ -22,7 +22,7 @@ spec:
             - name: KEYCLOAK_ADMIN
               valueFrom:
                 configMapKeyRef:
-                  name: eazybank-configmap
+                  name: udobank-configmap
                   key: KEYCLOAK_ADMIN
             - name: KEYCLOAK_ADMIN_PASSWORD
               valueFrom:
