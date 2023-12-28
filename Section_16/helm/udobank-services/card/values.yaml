@@ -1,0 +1,28 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deploymentName: card-deployment
+serviceName: card
+appLabel: card
+appName: card
+
+replicaCount: 1
+
+image:
+  repository: innocentudo/card
+  tag: s14
+
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 9000
+  targetPort: 9000
+
+appname_enabled: true
+profile_enabled: true
+config_enabled: true
+eureka_enabled: true
+resouceserver_enabled: false
+otel_enabled: true
+kafka_enabled: false
