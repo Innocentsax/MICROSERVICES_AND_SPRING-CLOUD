@@ -1,0 +1,27 @@
+dependencies:
+- name: udobank-common
+  repository: file://../../udobank-common
+  version: 0.1.0
+- name: configserver
+  repository: file://../../udobank-services/configserver
+  version: 0.1.0
+- name: eurekaserver
+  repository: file://../../udobank-services/eurekaserver
+  version: 0.1.0
+- name: accounts
+  repository: file://../../udobank-services/accounts
+  version: 0.1.0
+- name: card
+  repository: file://../../udobank-services/card
+  version: 0.1.0
+- name: loan
+  repository: file://../../udobank-services/loan
+  version: 0.1.0
+- name: gatewayserver
+  repository: file://../../udobank-services/gatewayserver
+  version: 0.1.0
+- name: message
+  repository: file://../../udobank-services/message
+  version: 0.1.0
+digest: sha256:352cfcfb81c39ebacc72a15ae5fc52b1b8788e2815ca3d2d3c5d35e036679997
+generated: "2023-12-29T08:56:07.607335+01:00"
