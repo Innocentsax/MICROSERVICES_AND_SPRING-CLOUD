@@ -17,7 +17,7 @@ containerPort: 8071
 service:
   type: ClusterIP
   port: 8071
-  targetPort: 71
+  targetPort: 8071
 
 appname_enabled: true
 profile_enabled: false
