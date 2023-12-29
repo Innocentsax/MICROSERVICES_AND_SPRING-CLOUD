@@ -22,3 +22,36 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.0.0"
+
+dependencies:
+  - name: udobank-common
+    version: 0.1.0
+    repository: file://../../udobank-common
+
+  - name: configserver
+    version: 0.1.0
+    repository: file://../../udobank-services/configserver
+
+  - name: eurekaserver
+    version: 0.1.0
+    repository: file://../../udobank-services/eurekaserver
+
+  - name: accounts
+    version: 0.1.0
+    repository: file://../../udobank-services/accounts
+
+  - name: card
+    version: 0.1.0
+    repository: file://../../udobank-services/card
+
+  - name: loan
+    version: 0.1.0
+    repository: file://../../udobank-services/loan
+
+  - name: gatewayserver
+    version: 0.1.0
+    repository: file://../../udobank-services/gatewayserver
+
+  - name: message
+    version: 0.1.0
+    repository: file://../../udobank-services/message
