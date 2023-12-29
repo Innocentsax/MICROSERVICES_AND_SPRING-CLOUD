@@ -1,28 +1,28 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-deploymentName: loan-deployment
-serviceName: loan
-appLabel: loan
-appName: loan
+deploymentName: message-deployment
+serviceName: message
+appLabel: message
+appName: message
 
 replicaCount: 1
 
 image:
-  repository: innocentudo/loan
+  repository: innocentudo/message
   tag: s14
 
-containerPort: 8090
+containerPort: 9010
 
 service:
   type: ClusterIP
-  port: 8090
-  targetPort: 8090
+  port: 9010
+  targetPort: 9010
 
 appname_enabled: true
-profile_enabled: true
-config_enabled: true
-eureka_enabled: true
+profile_enabled: false
+config_enabled: false
+eureka_enabled: false
 resouceserver_enabled: false
-otel_enabled: true
-kafka_enabled: false
+otel_enabled: false
+kafka_enabled: true
