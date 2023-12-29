@@ -2,28 +2,28 @@
 # Declare variables to be passed into your templates.
 
 
-deploymentName: eurekaserver-deployment
-serviceName: eurekaserver
-appLabel: eurekaserver
-appName: eurekaserver
+deploymentName: gatewayserver-deployment
+serviceName: gatewayserver
+appLabel: gatewayserver
+appName: gatewayserver
 
 replicaCount: 1
 
 image:
-  repository: innocentudo/eurekaserver
+  repository: innocentudo/gatewayserver
   tag: s14
 
-containerPort: 8070
+containerPort: 8072
 
 service:
-  type: ClusterIP
-  port: 8070
-  targetPort: 8070
+  type: LoadBalancer
+  port: 8072
+  targetPort: 8072
 
 appname_enabled: true
-profile_enabled: false
+profile_enabled: true
 config_enabled: true
-eureka_enabled: false
-resouceserver_enabled: false
+eureka_enabled: true
+resouceserver_enabled: true
 otel_enabled: true
 kafka_enabled: false
