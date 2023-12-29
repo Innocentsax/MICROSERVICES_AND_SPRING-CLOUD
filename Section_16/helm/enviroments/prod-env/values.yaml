@@ -1,6 +1,6 @@
 global:
-  configMapName: udobankdev-configmap
-  activeProfile: default
+  configMapName: udobankprod-configmap
+  activeProfile: prod
   configServerURL: configserver:http://configserver:8071/
   eurekaServerURL: http://eurekaserver:8070/eureka/
   keyCloakURL: http://keycloak.default.svc.cluster.local:80/realms/master/protocol/openid-connect/certs
