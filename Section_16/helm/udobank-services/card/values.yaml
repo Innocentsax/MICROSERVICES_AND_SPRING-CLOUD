@@ -12,7 +12,7 @@ image:
   repository: innocentudo/card
   tag: s14
 
-containerPort: 8080
+containerPort: 9000
 
 service:
   type: ClusterIP
