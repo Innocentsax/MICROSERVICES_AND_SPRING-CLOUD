@@ -1,23 +1,23 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-deploymentName: card-deployment
-serviceName: card
-appLabel: card
-appName: card
+deploymentName: loan-deployment
+serviceName: loan
+appLabel: loan
+appName: loan
 
 replicaCount: 1
 
 image:
-  repository: innocentudo/card
+  repository: innocentudo/loan
   tag: s14
 
-containerPort: 8080
+containerPort: 8090
 
 service:
   type: ClusterIP
-  port: 9000
-  targetPort: 9000
+  port: 8090
+  targetPort: 8090
 
 appname_enabled: true
 profile_enabled: true
