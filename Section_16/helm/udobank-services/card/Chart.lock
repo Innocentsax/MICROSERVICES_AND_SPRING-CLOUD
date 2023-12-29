@@ -1,0 +1,6 @@
+dependencies:
+- name: udobank-common
+  repository: file://../../udobank-common
+  version: 0.1.0
+digest: sha256:1f1d316b271fdab6440315e01a3293879d29e552ebd486a3251c7280c4b77976
+generated: "2023-12-29T07:53:18.725548+01:00"
